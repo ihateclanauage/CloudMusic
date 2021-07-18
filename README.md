@@ -56,7 +56,12 @@
        手机端小程序
      
 #### UI设计与动画效果
-
+[![首页](https://z3.ax1x.com/2021/07/18/W8Jdjf.jpg)](https://imgtu.com/i/W8Jdjf)
+[![搜索](https://z3.ax1x.com/2021/07/18/W8JFnU.jpg)](https://imgtu.com/i/W8JFnU)
+[![排行榜](https://z3.ax1x.com/2021/07/18/W8JkBF.gif)](https://imgtu.com/i/W8JkBF)
+[![视频页](https://z3.ax1x.com/2021/07/18/W8JRg0.jpg)](https://imgtu.com/i/W8JRg0)
+[![推荐页](https://z3.ax1x.com/2021/07/18/W8J4DU.jpg)](https://imgtu.com/i/W8J4DU)
+[![个人页](https://z3.ax1x.com/2021/07/18/W8JbCR.jpg)](https://imgtu.com/i/W8JbCR)
 
 ## 安装
 
