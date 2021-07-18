@@ -1,0 +1,130 @@
+/* pages/play/play.wxss */
+page{
+  height:100%;
+  width:100%;
+}
+#bg{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: black;
+}
+.bg{
+  display:flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items:center;
+  opacity: 0.5;
+}
+.musicName{
+  text-align: center;
+  font-size: 45rpx;
+  color: white;
+  position: relative;
+  width: 100%;
+  height: 200rpx;
+  line-height: 200rpx;
+}
+/* 滑块组件 */
+.main{
+  width: 100%;
+  height: 850rpx;
+  /* background: pink; */
+  position: relative;
+}
+.imgitem image{
+  width: 450rpx;
+  height: 450rpx;
+  border-radius: 50%;
+  border: 100rpx solid #333;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  box-shadow: 3rpx 3rpx 20rpx black;
+  animation: playimg 20s linear infinite;
+}
+@keyframes playimg{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+/* 按钮盒子 */
+.btnbox{
+  width: 100%;
+  height: 150rpx;
+  /* background: yellowgreen; */
+  position: fixed;
+  bottom: 30rpx;
+}
+.btnbox image{
+  float: left;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 30rpx 30rpx 30rpx;
+}
+.btnbox #next{
+  transform: rotateY(180deg); 
+}
+.btnbox #playmode{
+  float: left;
+  width: 70rpx;
+  height: 70rpx;
+  padding-top: 15rpx;
+}
+.play_btn{
+  width: 100%;
+  height: 150rpx;
+  margin: 0 auto;
+}
+.imgitem .clear{
+  /* 动画状态 暂停 */
+  animation-play-state: paused;
+}
+
+/* 歌词盒子 */
+.txtbox{
+  width: 100%;
+  height: 800rpx;
+  /* background: pink; */
+  text-align: center;
+  color: #a7a7a7;
+  font-size: 32rpx;
+  line-height: 60rpx;
+}
+
+/* 高亮显示歌词 */
+.color{
+  color: white;
+  font-size: 35rpx;
+  line-height: 60rpx;
+}
+
+/* 歌曲进度条 */
+.loadingbox{
+  width: 100%;
+  height: 100rpx;
+  /* background-color: skyblue; */
+  position: fixed;
+  bottom: 155rpx;
+}
+.load_time{
+  width: 60%;
+  float: left;
+  margin-top: 35rpx;
+  block-size: 16;
+}
+.loadingbox view{
+  width: 15%;
+  float: left;
+  text-align: center;
+  line-height: 100rpx;
+  color: white;
+}

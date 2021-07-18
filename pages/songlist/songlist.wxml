@@ -1,0 +1,102 @@
+<scroll-view scroll-y style="height:{{wh}}px;" bindscrolltolower="onBottom"> 
+
+<!--首页搜索栏-->
+<view class="searchBox" bindtap="toSearch">
+  <!-- <input bindinput="keychange" class="txt" type='text'></input> -->
+  <view class="btn" bindtap="search"><text class="iconfont icon-chazhao1"></text></view>
+</view>
+<!--搜索栏到此为止-->
+
+<!-- 来整个轮播图吧 -->
+<swiper id="banner" indicator-dots="true" autoplay="true" interval="5000" circular="true" indicator-color="#fff" indicator-active-color="#c20c0c">
+        <!--xw:for="{{background}}"前端通过遍历渲染后台数据-->
+        <block wx:for="{{background}}" wx:key="bannerId">
+          <swiper-item>
+            <!-- <view class="swiper-item {{item}}">{{item}}</view> -->
+            <image src="{{item.pic}}"></image>  
+          </swiper-item>
+        </block>
+      </swiper>
+<!--轮播图到此结束-->
+
+<!--五个icon导航区域-->
+<view class="navContainer">
+  <view class="navItem" bindtap='ToRecommandList'>
+    <text class="iconfont icon-meirituijian-"></text>
+    <text>每日推荐</text>
+  </view>
+  <view class="navItem">
+    <text class="iconfont icon-gedan"></text>
+    <text>歌单</text>
+  </view>
+  <view class="navItem">
+    <text class="iconfont icon-paihang"></text>
+    <text>排行榜</text>
+  </view>
+  <view class="navItem">
+    <text class="iconfont icon-diantai"></text>
+    <text>电台</text>
+  </view>
+  <view class="navItem">
+    <text class="iconfont icon-zhibobofangshexiangjiguankanmianxing"></text>
+    <text>直播</text>
+  </view>
+</view>
+<!--icon导航到此为止-->
+
+<!-- 推荐歌曲区域 -->
+<view class="recommendContainer">
+  <!-- 头部区域 -->
+  <NavHeader title="推荐歌曲" nav="为你精心推荐"></NavHeader>
+
+  <!-- 内容区域 -->
+  <scroll-view class="recommendScroll" enable-flex scroll-x>
+      <view class="scrollItem" wx:for="{{recommendList}}" wx:key="id" wx:for-item="recommendItem">
+        <image src="{{recommendItem.picUrl}}"></image>
+        <text>{{recommendItem.name}}</text>
+      </view>
+  </scroll-view>
+</view>
+<!-- 推荐歌曲区域到此结束 -->
+
+<!-- 排行榜区域 -->
+<view class="topList">
+  <!-- 头部区域 -->
+  <NavHeader title="排行榜" nav="热歌风向标"></NavHeader>
+  <!-- 内容区域 -->
+
+  <swiper class="topListSwiper" circular next-margin="50rpx" previous-margin="50rpx">
+    <swiper-item wx:for="{{topList}}" wx:key="name">
+      <view class="swiperItem">
+        <view class="title">{{item.name}}</view>
+        <view class="musicItem" wx:for="{{item.tracks}}" wx:key="id" wx:for-item="musicItem">
+          <image src="{{musicItem.al.picUrl}}"></image>
+          <text class="count">{{index + 1}}</text>
+          <text class="musicName">{{musicItem.name}}</text>
+        </view>
+      </view>
+    </swiper-item>
+
+  </swiper>
+</view>
+
+<!--做个歌曲列表-->
+<block wx:for="{{musiclist}}" wx:key='*this' wx:for-index='i'>
+  <view class="list_wrap">
+    <view class="list_cover">
+      <image src="{{imgList[i]}}"></image>
+    </view>
+    <view class="list_info">
+      <view class="musicName">{{item.name}}</view>
+      <view class="singer">{{item.artists[0].name}}</view>
+    </view>
+    <!--bindtap 单击事件, 触发play方法-->
+    <!--这里建立一个data-id变量，顺便在遍历的时候存储所有的id-->
+    <view data-id="{{item.id}}" bindtap="play" class="list_play">
+      <image src="/images/播放.png"></image>
+    </view>
+  </view>
+</block>
+<!--列表元件到此为止-->
+
+</scroll-view>

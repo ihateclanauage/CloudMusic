@@ -1,0 +1,48 @@
+<!--播放页面-->
+
+<!--这里是背景图片-->
+<view id="bg">
+  <image class="bg" wx:if="{{picUrl.length>0}}" src="{{picUrl}}"></image>
+</view>
+<!--背景图片到此为止-->
+
+<!--这里是固定的音乐名称-->
+<view class="musicName">{{name}}</view>
+<!--音乐名称到此为止-->
+
+<!--这里是专辑页面和滚动歌词的滑动组件-->
+<swiper class="main">
+  <swiper-item class="imgitem">
+    <image class="{{action.method=='play'?'':'clear'}}"  wx:if="{{picUrl.length>0}}" src="{{picUrl}}"></image>
+  </swiper-item>
+  <swiper-item class="item">
+  <!--滚动组件-->
+    <scroll-view class="txtbox" scroll-y="true" scroll-top="{{top}}">
+    <view wx:for-index='number' wx:for="{{lrclist}}" wx:key="*this" class="{{number==index ? 'color':''}}">{{item[1]}}</view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+<!--滑动组件到此为止-->
+
+<!--歌曲播放的进度条-->
+<view class="loadingbox">
+  <view class="start_time">{{playtime}}</view>
+  <slider class ="load_time" bindchange="sliderchange" activeColor="#c20c20" block-size="12" max="{{max}}" value="{{value}}"></slider>
+  <view class="end_time">{{fulltime}}</view>
+</view>
+
+<!--这里来个按钮全家桶-->
+<view class="btnbox">
+  <view class="play_btn">
+    <image id="playmode" bindtap="changemode" src="/images/{{mode=='loop' ? '循环播放':'单曲循环'}}.png"></image>
+    <image bindtap="lastSong" src="/images/上一首.png"></image>
+    <!-- 三元运算符判断当前播放状态 -->
+    <image bindtap="playdate" src="/images/{{action.method=='pause'?'播放-音乐.png':'暂停.png'}}"></image>
+    <image id="next" bindtap="nextSong" src="/images/上一首.png"></image>
+    <image id="playlist" src='/images/播放列表.png'></image>
+  </view>
+</view>
+<!--按钮全家桶到此为止-->
+
+<!--播放组件获取在线音乐资源-->
+<audio action="{{action}}" bindtap="playmusic" bindtimeupdate="timechange" bindended='changeMusic' src="https://music.163.com/song/media/outer/url?id={{musicId}}.mp3"></audio>
