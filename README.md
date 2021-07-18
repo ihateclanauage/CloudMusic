@@ -48,6 +48,12 @@
 
 #### 网络请求与数据传输
      本地客户端（localhost: 3000）--> Node.js 中间层接口 --> 网易云开放API
+            ^
+            |
+      NatApp内网穿透
+            ^
+            |
+       手机端小程序
      
 #### UI设计与动画效果
 
@@ -61,13 +67,20 @@
 
 ### 配置：
 - 对于那些只要在PC端模拟器上看到小程序演示效果的朋友们，你们需要：
-    - 安装Node.js，下载本项目中的***硅谷音乐_server***文件夹，在该文件夹的目录中打开cmd，输入 npm start
+    - 安装Node.js
+    - 下载本项目中的***硅谷音乐_server***文件夹
+    - 在该文件夹的目录中打开cmd，输入 npm start
 
 - 对于那些希望能在手机上看到实际效果的朋友们，你们需要：
-    1. 安装Node.js，下载本项目中的***硅谷音乐_server***文件夹，在该文件夹的目录中打开cmd，输入 npm start
-    2. 安装NatApp，按官方文档的指示申请一个免费的子网穿透账号，打开cmd，输入 natapp -authtoken=用户参数指令
-    3. 将git下来的源代码导入微信开发工具之中，打开utils文件夹中的config.js文件，将第4行代码语句 mobileHost: "http://9snjgv.natappfree.cc" 中的网址 "http://9snjgv.natappfree.cc" 改成你申请的域名
-    4. 再打开utils文件夹中的request.js文件，将第27行代码语句 url: config.host + url 中的 config.host 改为 config.mobileHost
+    - 安装Node.js
+        - 下载本项目中的***硅谷音乐_server***文件夹
+        - 在该文件夹的目录中打开cmd，输入 npm start
+    - 安装NatApp
+        - 按官方文档的指示申请一个免费的子网穿透账号
+        - 打开cmd，输入 natapp -authtoken=用户参数指令
+        - 将git下来的源代码导入微信开发工具之中
+        - 打开utils文件夹中的config.js文件，将第4行代码语句 mobileHost: "http://9snjgv.natappfree.cc" 中的网址改成你申请的域名
+        - 打开utils文件夹中的request.js文件，将第27行代码语句 url: config.host + url 中的 config.host 改为 config.mobileHost
 
 
 
